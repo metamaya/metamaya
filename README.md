@@ -25,7 +25,7 @@ In Javascript:
 
 ~~~js
 var mm = require("metamaya");
-var example = mm.require("example.mm");
+var example = mm.require("./example.mm");
 console.log(mm.eval(example.a));
 ~~~
 
