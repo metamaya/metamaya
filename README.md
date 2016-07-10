@@ -23,7 +23,7 @@ b = {
 
 In Javascript:
 
-~~~
+~~~js
 var mm = require("metamaya");
 var example = mm.require("example.mm");
 console.log(mm.eval(example.a));
@@ -37,7 +37,7 @@ Output:
 
 Alternatively, you can compile a string directly.
 
-~~~
+~~~js
 var mod = mm.compile("x = 3*3");
 console.log(mm.eval(mod.x));
 ~~~
@@ -49,7 +49,7 @@ As reassignment is not allowed, a name is simply defined
 by assigning a value to it.
 
 ~~~
-a = b.c.y; // a = 1
+a = b.c.y; // 1
 b = {
 	x = 1;
 	c = { y = x; }  // x comes from the enclosing object
@@ -60,7 +60,7 @@ You can do the usual arithmetics.
 As you have probably noticed, names can be accessed before the place of definition.
 
 ~~~
-a = (x + y) * (x - y); // a = -5
+a = (x + y) * (x - y); // -5
 x = 2;
 y = 3;
 ~~~
@@ -71,5 +71,5 @@ so you can guess what happens when two strings are added up.
 ~~~
 a = "meta";
 b = "maya";
-mm = a + b; // mm = "metamaya"
+mm = a + b; // "metamaya"
 ~~~
