@@ -1,6 +1,6 @@
 {
   "name": "metamaya",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An experimental metaprogramming language",
   "homepage": "http://metamaya.org",
   "repository": {
