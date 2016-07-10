@@ -5,19 +5,19 @@
   "homepage": "http://metamaya.org",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kkeri/metamaya.git"
+    "url": "https://github.com/metamaya/metamaya.git"
   },
   "license": "MIT",
   "author": {
     "name": "Kalman Keri",
-    "email": "info@metamaya.org"
+    "email": "kk@metamaya.org"
   },
   "main": "./lib/metamaya.js",
   "directories": {
     "lib": "./lib"
   },
   "dependencies": {
-    "ohm-js": "^1.4.2"
+    "ohm-js": "^0.11.0"
   },
   "devDependencies": {
     "tape": "^4.6.0"
