@@ -10,6 +10,13 @@ but more exciting features are on the roadmap:
 - cyclic dependency detection
 - optional typing...
 
+## Installation
+
+In node.js:
+~~~
+npm install metamaya
+~~~
+
 ## Usage
 
 In `example.mm`:
@@ -17,7 +24,7 @@ In `example.mm`:
 ~~~
 a = b.x;
 b = {
-	x = 1;
+    x = 1;
 }
 ~~~
 
@@ -51,8 +58,8 @@ by assigning a value to it.
 ~~~
 a = b.c.y; // 1
 b = {
-	x = 1;
-	c = { y = x; }  // x comes from the enclosing object
+    x = 1;
+    c = { y = x; }  // x comes from the enclosing object
 }
 ~~~
 
