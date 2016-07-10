@@ -73,11 +73,11 @@ Metamaya {
 		| Primary
 
 	Primary =
-		| "(" Expression ")" -- parens
-		| "{" Statement* "}" -- object
 		| Primary "." identifier -- select
 		| Primary "[" Expression "]" -- index
-		| Primary "(" listOf<Expression, ","> ")" -- apply
+		| Primary "(" listOf<Expression, ","> ")" -- bind
+		| "(" Expression ")" -- parens
+		| "{" Statement* "}" -- object
 		| identifier -- baseref
 		| literal
 		| "_"
@@ -167,6 +167,7 @@ Metamaya {
 
   literal = nullLiteral | booleanLiteral | numericLiteral
 		  | stringLiteral | regularExpressionLiteral // spec forgot Regexp literals in appendix?
+
   nullLiteral = "null" ~identifierPart
   booleanLiteral = ("true" | "false") ~identifierPart
 

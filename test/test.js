@@ -14,6 +14,19 @@ test("arithmetic", (t) => {
 	t.end();
 });
 
+test("string", (t) => {
+	t.equal(testStr('start = a + b; a = "meta"; b = "maya"'), 'metamaya');
+	t.end();
+});
+
+test("object", (t) => {
+	t.deepEqual(testStr('start = {}'), {});
+	t.deepEqual(testStr('start = { x = 3; y = 7; }'), { x: 3, y: 7 });
+	t.equal(testStr('start = { x = 3; }.x'), 3);
+	t.end();
+});
+
+
 test("static context", (t) => {
 	t.equal(testStr("start = a; a = 3"), 3);
 	t.equal(testStr("start = a.x; a = { x = 3; }"), 3);
@@ -27,7 +40,7 @@ test("static context", (t) => {
 function testStr(str) {
 	try {
 		let mod = mm.compile(str);
-		return mm.evalProperty(mod, "start");
+		return mm.eval(mod.start);
 	}
 	catch (e) {
 		return e;
@@ -38,8 +51,8 @@ function testStr(str) {
 function testFile(name) {
 	let path = "./test/mm/" + name + ".mm";
 	try {
-		let mod = mm.loadModule(path);
-		return mm.evalProperty(mod, "start");
+		let mod = mm.require(path);
+		return mm.eval(mod.start);
 	}
 	catch (e) {
 		return e;
