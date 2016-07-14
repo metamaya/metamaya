@@ -5,7 +5,7 @@ const mm = require("../lib/metamaya");
 let coreModule = mm.makeModule({
 
 	getProperty(obj, key) {
-		if (obj.hasOwnProperty(key))
+		if (key in obj)
 			return obj[key];
 		else
 			throw new mm.Exception(key + ": property is undefined");
