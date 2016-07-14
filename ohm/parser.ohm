@@ -1,7 +1,6 @@
 /*
-	Metamaya lexer based on the Ecmascript5 parser provided as an exampe
-	with Ohm.
-	The original file header follows.
+	Metamaya lexer based on the Ecmascript5 parser provided as an example with Ohm-js.
+	The ohm-js file header follows.
 */
 
 /*
@@ -28,7 +27,7 @@
 
 /* (end of original copyright and license) */
 
-/* (end of original file header) */
+/* (end of ohm-js file header) */
 
 
 Metamaya {
@@ -38,7 +37,8 @@ Metamaya {
 	Statement =
 		| Definition
 
-	Definition = identifier "=" Expression #sc
+	Definition =
+		| identifier "=" Expression #sc -- namedValue
 
 	Rewrite = Expression "="  Expression #sc
 
