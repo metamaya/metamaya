@@ -49,7 +49,7 @@ var mod = mm.compile("x = 3*3");
 console.log(mm.eval(mod.x));
 ~~~
 
-## Features
+## Quick tour
 
 Names are statically scoped in metamaya programs.
 As reassignment is not allowed, a name is simply defined
@@ -59,7 +59,7 @@ by assigning a value to it.
 a = b.c.y; // 1
 b = {
     x = 1;
-    c = { y = x; }  // x comes from the enclosing object
+    c = { y = x; }  // x comes from the enclosing scope
 }
 ~~~
 
@@ -80,3 +80,15 @@ a = "meta";
 b = "maya";
 mm = a + b; // "metamaya"
 ~~~
+
+The global object invisibly surrounds a metamaya program,
+so you can access the Javascript environment.
+
+~~~
+a = Number("2"); // 2
+~~~
+
+----
+
+That's all for now.
+Please note that metamaya is in a very early phase, so anything may change the next week.

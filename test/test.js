@@ -4,6 +4,7 @@ const mm = require("../lib/metamaya");
 const test = require("tape");
 
 test("arithmetic", (t) => {
+	t.equal(testStr("start = -3"), -3);
 	t.equal(testStr("start = 2 + 3"), 5);
 	t.equal(testStr("start = 5 - 3"), 2);
 	t.equal(testStr("start = 2 * 3"), 6);
@@ -33,6 +34,14 @@ test("static context", (t) => {
 	t.equal(testStr("start = a.b.y; a = { x = 3; b = { y = 7; } }"), 7);
 	t.equal(testStr("start = a.b.y; a = { x = 3; b = { y = x; } }"), 3);
 	t.equal(testFile("struct"), 9);
+	t.end();
+});
+
+global.__mm_test_value__ = 33;
+
+test("global context", (t) => {
+	t.equal(testStr('start = __mm_test_value__'), 33);
+	t.equal(testStr('start = Number("2")'), 2);
 	t.end();
 });
 
