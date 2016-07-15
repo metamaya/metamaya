@@ -1,6 +1,7 @@
 /*
-	Metamaya lexer based on the Ecmascript5 parser provided as an example with Ohm-js.
-	The ohm-js file header follows.
+	Metamaya parser based on the Ecmascript5 parser from the Ohm project.
+	See: https://github.com/cdglabs/ohm
+	The Ohm file header follows.
 */
 
 /*
@@ -27,7 +28,7 @@
 
 /* (end of original copyright and license) */
 
-/* (end of ohm-js file header) */
+/* (end of Ohm file header) */
 
 
 Metamaya {
@@ -82,6 +83,7 @@ Metamaya {
 		| literal
 		| "_"
 
+// --------------------------------------------------------------------------
 
   // §A.1 Lexical Grammar -- http://ecma-international.org/ecma-262/5.1/#sec-A.1
 
