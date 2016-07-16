@@ -40,6 +40,7 @@ Metamaya {
 
 	Definition =
 		| identifier "=" Expression #sc -- namedValue
+		| identifier "(" listOf<identifier, ","> ")" "=" Expression #sc -- namedFunction
 
 	Rewrite = Expression "="  Expression #sc
 

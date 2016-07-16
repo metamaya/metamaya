@@ -45,6 +45,11 @@ test("global context", (t) => {
 	t.end();
 });
 
+test("function", (t) => {
+	t.equal(testStr('start = f(2); f(x) = x * x'), 4);
+	t.end();
+});
+
 
 function testStr(str) {
 	try {
