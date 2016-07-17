@@ -81,11 +81,17 @@ b = "maya";
 mm = a + b; // "metamaya"
 ~~~
 
-The global object invisibly surrounds a metamaya program,
-so you can access the Javascript environment.
+The Javascript global context can be accessed from metamaya code.
 
 ~~~
 a = Number("2"); // 2
+~~~
+
+You can easily define your own functions too.
+
+~~~
+sqr(x) = x * x
+a = sqr(3); // 9
 ~~~
 
 ----
