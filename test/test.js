@@ -42,11 +42,14 @@ global.__mm_test_value__ = 33;
 test("global context", (t) => {
 	t.equal(testStr('start = __mm_test_value__'), 33);
 	t.equal(testStr('start = Number("2")'), 2);
+	t.equal(testStr('start = f(2) + f(3); f(x) = x * x'), 13);
 	t.end();
 });
 
 test("function", (t) => {
 	t.equal(testStr('start = f(2); f(x) = x * x'), 4);
+	t.equal(testStr('start = f(2) + f(3); f(x) = x * x'), 13);
+	t.equal(testStr('start = f(f(3)); f(x) = x * x'), 81);
 	t.end();
 });
 
