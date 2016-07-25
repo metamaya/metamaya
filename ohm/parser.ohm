@@ -40,9 +40,7 @@ Metamaya {
 
 	Definition =
 		| identifier "=" Expression #sc -- namedValue
-		| identifier "(" listOf<identifier, ","> ")" "=" Expression #sc -- namedFunction
-
-	Rewrite = Expression "="  Expression #sc
+		| identifier ParamList "=" Expression #sc -- namedFunction
 
 	Import = "@import" stringLiteral #sc
 
@@ -51,38 +49,35 @@ Metamaya {
 	Expression = Relation
 
 	Relation =
-		| Relation "==" Additive -- eq
-		| Relation "!=" Additive -- neq
-		| Relation "<"  Additive -- lt
-		| Relation ">"  Additive -- gt
-		| Relation "<=" Additive -- le
-		| Relation ">=" Additive -- ge
+		| Relation ("==" | "!=" | "<" | ">" | "<=" | ">=") Additive -- infix
 		| Additive
 
 	Additive =
-		| Additive "+" Multiplicative -- add
-		| Additive "-" Multiplicative -- sub
+		| Additive ("+" | "-") Multiplicative -- infix
 		| Multiplicative
 
 	Multiplicative =
-		| Multiplicative "*" Factor -- mul
-		| Multiplicative "/" Factor -- div
-		| Multiplicative "%" Factor -- mod
+		| Multiplicative ("*" | "/" | "%") Factor -- infix
 		| Factor
 
 	Factor =
-		| "-" Primary -- minus
+		| "-" Primary -- prefix
 		| Primary
 
 	Primary =
+		| Primary "." identifier ArgumentList -- bindInstanceMethod
 		| Primary "." identifier -- select
 		| Primary "[" Expression "]" -- index
-		| Primary "(" listOf<Expression, ","> ")" -- bind
+		| Primary ArgumentList -- bind
 		| "(" Expression ")" -- parens
 		| "{" Statement* "}" -- object
-		| identifier -- baseref
+		| identifier -- nameref
 		| literal
 		| "_"
+
+	ParamList = "(" listOf<identifier, ","> ")"
+
+	ArgumentList = "(" listOf<Expression, ","> ")"
 
 // --------------------------------------------------------------------------
 

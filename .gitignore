@@ -2,3 +2,6 @@ notes/
 typings/
 node_modules/
 test/try.js
+*.njsproj
+obj/
+bin/
