@@ -2,7 +2,7 @@
 
 const mm = require("../lib/metamaya");
 
-let coreModule = mm.makeModule({
+exports.coreModule = {
 
 	// arithmetics
 
@@ -24,6 +24,4 @@ let coreModule = mm.makeModule({
 	minus(a) {
 		return -a;
 	},
-});
-
-exports.coreModule = mm.registerModule("core", coreModule);
+};
