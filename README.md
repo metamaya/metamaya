@@ -17,6 +17,8 @@ In node.js:
 npm install metamaya
 ~~~
 
+For more information read [Installation](doc/installation.md).
+
 ## Usage
 
 In `example.mm`:
