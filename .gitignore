@@ -2,3 +2,6 @@ notes/
 typings/
 node_modules/
 test/try.js
+bin/
+obj/
+/metamaya.njsproj
