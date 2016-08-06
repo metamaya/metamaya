@@ -57,7 +57,7 @@ test("function", (t) => {
 function testStr(str) {
 	try {
 		let mod = mm.compile(str);
-		return mm.eval(mod.start);
+		return mod.get("start").value();
 	}
 	catch (e) {
 		return e;
