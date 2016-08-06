@@ -40,6 +40,7 @@ Metamaya {
 
 	Definition =
 		| identifier "=" Expression #sc -- namedValue
+		| identifier "{" Statement* "}" #sc -- namedObject
 		| identifier ParamList "=" Expression #sc -- namedFunction
 
 	Import = "@import" stringLiteral #sc
@@ -65,17 +66,20 @@ Metamaya {
 		| Primary
 
 	Primary =
-		| Primary "." identifier ArgumentList -- bindInstanceMethod
-		| Primary "." identifier -- select
-		| Primary "[" Expression "]" -- index
-		| Primary ArgumentList -- bind
 		| "(" Expression ")" -- parens
+		| Primary "[" Expression "]" -- index
 		| "{" Statement* "}" -- object
-		| identifier -- nameref
+		| Primary "{" Statement* "}" -- objectExtend
+		| Primary ArgumentList -- invoke
+		| Primary "." identifier ArgumentList -- invokeProperty
+		| Primary "." identifier -- getProperty
+		| identifier -- nameReference
 		| literal
 		| "_"
 
-	ParamList = "(" listOf<identifier, ","> ")"
+	ParamList = "(" listOf<Parameter, ","> ")"
+
+	Parameter = identifier
 
 	ArgumentList = "(" listOf<Expression, ","> ")"
 
