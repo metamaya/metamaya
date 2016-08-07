@@ -33,7 +33,7 @@ In Javascript:
 ~~~js
 var mm = require("metamaya");
 var example = mm.require("./example.mm");
-console.log(mm.eval(example.a));
+console.log(example.get('a').value());
 ~~~
 
 Output:
@@ -46,7 +46,7 @@ Alternatively, you can compile a string directly.
 
 ~~~js
 var mod = mm.compile("x = 3*3");
-console.log(mm.eval(mod.x));
+console.log(mod.get('x').value()); // 9
 ~~~
 
 ## Quick tour
