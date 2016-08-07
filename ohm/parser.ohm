@@ -66,13 +66,13 @@ Metamaya {
 		| Primary
 
 	Primary =
-		| "(" Expression ")" -- parens
 		| Primary "[" Expression "]" -- index
-		| "{" Statement* "}" -- object
 		| Primary "{" Statement* "}" -- objectExtend
 		| Primary ArgumentList -- invoke
 		| Primary "." identifier ArgumentList -- invokeProperty
 		| Primary "." identifier -- getProperty
+		| "(" Expression ")" -- parens
+		| "{" Statement* "}" -- object
 		| identifier -- nameReference
 		| literal
 		| "_"

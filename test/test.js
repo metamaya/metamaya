@@ -57,7 +57,7 @@ test("function", (t) => {
 function testStr(str) {
 	try {
 		let mod = mm.compile(str);
-		return mod.get("start").value();
+		return mod.get('start').value();
 	}
 	catch (e) {
 		return e;
@@ -69,7 +69,7 @@ function testFile(name) {
 	let path = "./test/mm/" + name + ".mm";
 	try {
 		let mod = mm.require(path);
-		return mm.eval(mod.start);
+		return mod.get('start').value();
 	}
 	catch (e) {
 		return e;
