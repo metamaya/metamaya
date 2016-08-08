@@ -1,7 +1,7 @@
 {
   "name": "metamaya",
   "version": "0.0.2",
-  "description": "An experimental metaprogramming language",
+  "description": "Experimental metaprogramming language written in modern Javascript",
   "homepage": "http://metamaya.org",
   "repository": {
     "type": "git",
