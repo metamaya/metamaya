@@ -1,4 +1,4 @@
-﻿"use strict"
+﻿"use strict";
 
 const mm = require("../lib/metamaya");
 const test = require("tape");
@@ -50,6 +50,7 @@ test("function", (t) => {
 	t.equal(testStr('start = f(2); f(x) = x * x'), 4);
 	t.equal(testStr('start = f(2) + f(3); f(x) = x * x'), 13);
 	t.equal(testStr('start = f(f(3)); f(x) = x * x'), 81);
+	t.equal(testStr('start = f(g(3)); f(x) = x * x; g = x + 2'), 25);
 	t.end();
 });
 
