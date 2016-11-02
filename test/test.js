@@ -54,6 +54,12 @@ test("function", (t) => {
 	t.end();
 });
 
+test("if", (t) => {
+	t.equal(testStr('start = if (true) 1 else 2'), 1);
+	t.equal(testStr('start = if (false) 1 else 2'), 2);
+	t.end();
+});
+
 
 function testStr(str) {
 	try {

@@ -50,7 +50,7 @@ Metamaya {
 	Expression = Relation
 
 	Relation =
-		| Relation ("==" | "!=" | "<" | ">" | "<=" | ">=") Additive -- infix
+		| Relation ("===" | "!==" | "==" | "!=" | "<" | ">" | "<=" | ">=") Additive -- infix
 		| Additive
 
 	Additive =
@@ -63,6 +63,7 @@ Metamaya {
 
 	Factor =
 		| "-" Primary -- prefix
+		| "if" "(" Expression ")" Expression "else" Expression -- if
 		| Primary
 
 	Primary =
